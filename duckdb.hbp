@@ -1,0 +1,62 @@
+# DuckDB Harbour 包裝器專案檔
+
+# 編譯器設定
+{msvc}
+   -lmsvc
+   -inc
+   -Ld:\hb32\lib
+   -Id:\hb32\include
+
+{bcc}
+   -lbcc
+   -inc
+   -Ld:\bcc74\lib
+   -Id:\bcc74\include
+   -Ld:\hb32\lib
+   -Id:\hb32\include
+   -L.
+   -I.
+
+{mingw}
+   -lmingw
+   -inc
+   -Ld:\hb32\lib
+   -Id:\hb32\include
+
+# DuckDB 函式庫
+{msvc}
+   -lduckdb
+   -L.
+   -I.
+
+{bcc}
+   -lduckdb
+   -L.
+   -I.
+
+{mingw}
+   -lduckdb
+   -L.
+   -I.
+
+# 原始碼檔案
+harbour_duckdb.c
+
+# 強制使用 BCC 編譯器
+-bcc
+
+-hblib
+-inc
+
+-o${hb_name}
+
+-w3 -es2
+
+-depkeyhead=duckdb:duckdb.h
+-depcontrol=duckdb:local{HB_BUILD_3RDEXT='no'}
+-depcontrol=duckdb:${HB_WITH_DUCKDB}
+-depincpath=duckdb:.
+-depimplibs=duckdb:duckdb.lib
+-depimplibs=duckdb:duckdb.dll
+
+${hb_name}.hbx
