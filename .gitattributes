@@ -1,0 +1,10 @@
+*.prg linguist-detectable=true
+*.ch linguist-detectable=true
+*.c linguist-detectable=false
+*.h linguist-detectable=false
+
+*.prg linguist-language=xbase
+*.ch linguist-language=xbase
+*.js linguist-language=javascript
+*.c linguist-language=C
+*.h linguist-language=C
